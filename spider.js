@@ -256,20 +256,12 @@ Spider.prototype.setOptionHandleParameters = function (string, apikey, callback)
   this.api.request('/spider/action/setOptionHandleParameters/', {'String' : string, 'apikey' : apikey}, callback);
 };
 
-Spider.prototype.setOptionMaxDepth = function (integer, apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/spider/action/setOptionMaxDepth/', {'Integer' : integer, 'apikey' : apikey}, callback);
+Spider.prototype.setOptionMaxDepth = async function (integer, apikey, callbacks) {
+  await this.api.request('/spider/action/setOptionMaxDepth/', {'Integer' : integer, 'apikey' : apikey}, callbacks);
 };
 
-Spider.prototype.setOptionThreadCount = function (integer, apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/spider/action/setOptionThreadCount/', {'Integer' : integer, 'apikey' : apikey}, callback);
+Spider.prototype.setOptionThreadCount = async function (integer, apikey, callbacks) {
+  await this.api.request('/spider/action/setOptionThreadCount/', {'Integer' : integer, 'apikey' : apikey}, callbacks);
 };
 
 Spider.prototype.setOptionPostForm = function (bool, apikey, callback) {
