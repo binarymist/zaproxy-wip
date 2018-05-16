@@ -129,11 +129,13 @@ ClientApi.prototype.request = async function (url, parms, callbacks) {
 
 
 
-ClientApi.prototype.requestOther = function (url, parms, callback) {
-  if (!callback && typeof(parms === 'function')) {
-    callback = parms;
-    parms = null;
-  }
+ClientApi.prototype.requestOther = async function (url, parms, callbacks) {
+  //if (!callback && typeof(parms === 'function')) {
+  //  callback = parms;
+  //  parms = null;
+  //}
+  debugger;
+  const { zapCallback, zapErrorHandler } = callbacks;
 
   var options = {
     url: BASE_OTHER + url
@@ -141,7 +143,9 @@ ClientApi.prototype.requestOther = function (url, parms, callback) {
   if (parms) {
     options.qs = parms;
   }
-  this.req(options, responseHandler(callback));
+  
+  await this.req(options)
+    .then(zapCallback, zapErrorHandler)
 };
 
 module.exports = ClientApi;

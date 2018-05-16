@@ -425,12 +425,8 @@ Core.prototype.xmlreport = function (apikey, callback) {
 /**
  * Generates a report in HTML format
  **/
-Core.prototype.htmlreport = function (apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.requestOther('/core/other/htmlreport/', {'apikey' : apikey}, callback);
+Core.prototype.htmlreport = async function (apikey, callbacks) {
+  await this.api.requestOther('/core/other/htmlreport/', {'apikey' : apikey}, callbacks);
 };
 
 /**
