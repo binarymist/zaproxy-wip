@@ -55,8 +55,8 @@ Ascan.prototype.excludedFromScan = function (callback) {
   this.api.request('/ascan/view/excludedFromScan/', callback);
 };
 
-Ascan.prototype.scanners = function (scanpolicyname, policyid, callback) {
-  this.api.request('/ascan/view/scanners/', {'scanPolicyName' : scanpolicyname, 'policyId' : policyid}, callback);
+Ascan.prototype.scanners = async function (scanpolicyname, policyid, callbacks) {
+  await this.api.request('/ascan/view/scanners/', {'scanPolicyName' : scanpolicyname, 'policyId' : policyid}, callbacks);
 };
 
 Ascan.prototype.policies = function (scanpolicyname, policyid, callback) {
