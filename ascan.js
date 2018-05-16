@@ -231,20 +231,12 @@ Ascan.prototype.excludeFromScan = function (regex, apikey, callback) {
   this.api.request('/ascan/action/excludeFromScan/', {'regex' : regex, 'apikey' : apikey}, callback);
 };
 
-Ascan.prototype.enableAllScanners = function (scanpolicyname, apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/ascan/action/enableAllScanners/', {'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callback);
+Ascan.prototype.enableAllScanners = async function (scanpolicyname, apikey, callbacks) {
+  await this.api.request('/ascan/action/enableAllScanners/', {'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callbacks);
 };
 
-Ascan.prototype.disableAllScanners = function (scanpolicyname, apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/ascan/action/disableAllScanners/', {'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callback);
+Ascan.prototype.disableAllScanners = async function (scanpolicyname, apikey, callbacks) {
+  await this.api.request('/ascan/action/disableAllScanners/', {'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callbacks);
 };
 
 Ascan.prototype.enableScanners = function (ids, apikey, callback) {

@@ -55,23 +55,15 @@ Pscan.prototype.setEnabled = function (enabled, apikey, callback) {
 /**
  * Enables all passive scanners
  **/
-Pscan.prototype.enableAllScanners = function (apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/pscan/action/enableAllScanners/', {'apikey' : apikey}, callback);
+Pscan.prototype.enableAllScanners = async function (apikey, callbacks) {
+  await this.api.request('/pscan/action/enableAllScanners/', {'apikey' : apikey}, callbacks);
 };
 
 /**
  * Disables all passive scanners
  **/
-Pscan.prototype.disableAllScanners = function (apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/pscan/action/disableAllScanners/', {'apikey' : apikey}, callback);
+Pscan.prototype.disableAllScanners = async function (apikey, callbacks) {
+  await this.api.request('/pscan/action/disableAllScanners/', {'apikey' : apikey}, callbacks);
 };
 
 /**
