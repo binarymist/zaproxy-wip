@@ -279,20 +279,12 @@ Ascan.prototype.setPolicyAlertThreshold = function (id, alertthreshold, scanpoli
   this.api.request('/ascan/action/setPolicyAlertThreshold/', {'id' : id, 'alertThreshold' : alertthreshold, 'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callback);
 };
 
-Ascan.prototype.setScannerAttackStrength = function (id, attackstrength, scanpolicyname, apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/ascan/action/setScannerAttackStrength/', {'id' : id, 'attackStrength' : attackstrength, 'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callback);
+Ascan.prototype.setScannerAttackStrength = async function (id, attackstrength, scanpolicyname, apikey, callbacks) {
+  await this.api.request('/ascan/action/setScannerAttackStrength/', {'id' : id, 'attackStrength' : attackstrength, 'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callbacks);
 };
 
-Ascan.prototype.setScannerAlertThreshold = function (id, alertthreshold, scanpolicyname, apikey, callback) {
-  if (!callback && typeof(apikey) === 'function') {
-    callback = apikey;
-    apikey = null;
-  }
-  this.api.request('/ascan/action/setScannerAlertThreshold/', {'id' : id, 'alertThreshold' : alertthreshold, 'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callback);
+Ascan.prototype.setScannerAlertThreshold = async function (id, alertthreshold, scanpolicyname, apikey, callbacks) {
+  await this.api.request('/ascan/action/setScannerAlertThreshold/', {'id' : id, 'alertThreshold' : alertthreshold, 'scanPolicyName' : scanpolicyname, 'apikey' : apikey}, callbacks);
 };
 
 Ascan.prototype.addScanPolicy = function (scanpolicyname, apikey, callback) {
