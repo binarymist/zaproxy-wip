@@ -21,7 +21,7 @@
 
 var request = require('request-promise-native'),
     _ = require('lodash');
-debugger;
+
 var Acsrf = require('./acsrf');
 var AjaxSpider = require('./ajaxSpider');
 var Ascan = require('./ascan');
@@ -48,7 +48,6 @@ var BASE = 'http://zap/JSON';
 var BASE_OTHER = 'http://zap/OTHER';
 
 function ClientApi(options) {
-  debugger;
   options = options || {};
   _.defaults(options, {
     proxy: 'http://127.0.0.1:8080'
@@ -59,7 +58,7 @@ function ClientApi(options) {
     json: true,
     proxy: options.proxy
   };
-debugger;
+
   this.req = request.defaults(requestOptions);
   this.acsrf = new Acsrf(this);
   this.ajaxSpider = new AjaxSpider(this);
@@ -106,7 +105,7 @@ var responseHandler = function (callback) {
 };
 */
 ClientApi.prototype.request = async function (url, parms, callbacks) {
-  debugger;
+
   //if (!callback && typeof(parms === 'function')) {
   //  callback = parms;
   //  parms = null;

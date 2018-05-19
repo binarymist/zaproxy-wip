@@ -57,7 +57,6 @@ Users.prototype.removeUser = function (contextid, userid, apikey, callback) {
 };
 
 Users.prototype.setUserEnabled = async function (contextid, userid, enabled, apikey, callbacks) {
-  debugger;
   await this.api.request('/users/action/setUserEnabled/', {'contextId' : contextid, 'userId' : userid, 'enabled' : enabled, 'apikey' : apikey}, callbacks);
 };
 
@@ -70,7 +69,6 @@ Users.prototype.setUserName = function (contextid, userid, name, apikey, callbac
 };
 
 Users.prototype.setAuthenticationCredentials = async function (contextid, userid, authcredentialsconfigparams, apikey, callbacks) {
-  debugger;
   await this.api.request('/users/action/setAuthenticationCredentials/', {'contextId' : contextid, 'userId' : userid, 'authCredentialsConfigParams' : authcredentialsconfigparams, 'apikey' : apikey}, callbacks);
 };
 

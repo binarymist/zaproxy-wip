@@ -36,12 +36,10 @@ ForcedUser.prototype.getForcedUser = function (contextid, callback) {
 };
 
 ForcedUser.prototype.setForcedUser = async function (contextid, userid, apikey, callbacks) {
-  debugger;
   await this.api.request('/forcedUser/action/setForcedUser/', {'contextId' : contextid, 'userId' : userid, 'apikey' : apikey}, callbacks);
 };
 
 ForcedUser.prototype.setForcedUserModeEnabled = async function (bool, apikey, callbacks) {
-  debugger;
   await this.api.request('/forcedUser/action/setForcedUserModeEnabled/', {'boolean' : bool, 'apikey' : apikey}, callbacks);
 };
 

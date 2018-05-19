@@ -136,7 +136,6 @@ Ascan.prototype.optionAllowAttackOnStart = function (callback) {
 };
 
 Ascan.prototype.scan = async function (url, recurse, inscopeonly, scanpolicyname, method, postdata, apikey, callbacks) {
-  debugger;
   await this.api.request('/ascan/action/scan/', {'url' : url, 'recurse' : recurse, 'inScopeOnly' : inscopeonly, 'scanPolicyName' : scanpolicyname, 'method' : method, 'postData' : postdata, 'apikey' : apikey}, callbacks);
 };
 

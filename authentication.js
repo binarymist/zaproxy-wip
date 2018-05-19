@@ -48,12 +48,10 @@ Authentication.prototype.getLoggedOutIndicator = function (contextid, callback) 
 };
 
 Authentication.prototype.setAuthenticationMethod = async function (contextid, authmethodname, authmethodconfigparams, apikey, callbacks) {
-  debugger;  
   await this.api.request('/authentication/action/setAuthenticationMethod/', {'contextId' : contextid, 'authMethodName' : authmethodname, 'authMethodConfigParams' : authmethodconfigparams, 'apikey' : apikey}, callbacks);
 };
 
 Authentication.prototype.setLoggedInIndicator = async function (contextid, loggedinindicatorregex, apikey, callbacks) {
-  debugger;
   await this.api.request('/authentication/action/setLoggedInIndicator/', {'contextId' : contextid, 'loggedInIndicatorRegex' : loggedinindicatorregex, 'apikey' : apikey}, callbacks);
 };
 

@@ -135,12 +135,10 @@ Spider.prototype.optionSendRefererHeader = function (callback) {
 };
 
 Spider.prototype.scan = async function (url, maxchildren, apikey, callbacks) {
-  debugger;
   await this.api.request('/spider/action/scan/', {'url' : url, 'maxChildren' : maxchildren, 'apikey' : apikey}, callbacks);
 };
 
 Spider.prototype.scanAsUser = async function (url, contextid, userid, maxchildren, apikey, callbacks) {
-  debugger;
   await this.api.request('/spider/action/scanAsUser/', {'url' : url, 'contextId' : contextid, 'userId' : userid, 'maxChildren' : maxchildren, 'apikey' : apikey}, callbacks);
 };
 
