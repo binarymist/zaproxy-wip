@@ -429,6 +429,16 @@ Core.prototype.htmlreport = function (apikey) {
   return this.api.requestOther('/core/other/htmlreport/', {'apikey' : apikey});
 };
 
+Core.prototype.jsonreport = function (apikey) {
+  return this.api.requestOther('/core/other/jsonreport/', {'apikey' : apikey});
+};
+
+Core.prototype.mdreport = function (apikey) {
+  return this.api.requestOther('/core/other/mdreport/', {'apikey' : apikey});
+};
+
+
+
 /**
  * Gets the message with the given ID in HAR format
  **/
