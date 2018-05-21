@@ -69,8 +69,8 @@ Context.prototype.excludeFromContext = function (contextname, regex, apikey, cal
 /**
  * Add include regex to context
  **/
-Context.prototype.includeInContext = async function (contextname, regex, apikey, callbacks) {
-  await this.api.request('/context/action/includeInContext/', {'contextName' : contextname, 'regex' : regex, 'apikey' : apikey}, callbacks);
+Context.prototype.includeInContext = function (contextname, regex, apikey) {
+  return this.api.request('/context/action/includeInContext/', {'contextName' : contextname, 'regex' : regex, 'apikey' : apikey});
 };
 
 
@@ -88,8 +88,8 @@ Context.prototype.newContext = function (contextname, apikey, callback) {
 };
 */
 
-Context.prototype.newContext = async function (contextname, apikey, callbacks) {
-  await this.api.request('/context/action/newContext/', {'contextName' : contextname, 'apikey' : apikey}, callbacks);
+Context.prototype.newContext = function (contextname, apikey) {
+  return this.api.request('/context/action/newContext/', {'contextName' : contextname, 'apikey' : apikey});
 };
 
 

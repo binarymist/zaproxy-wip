@@ -47,12 +47,12 @@ Authentication.prototype.getLoggedOutIndicator = function (contextid, callback) 
   this.api.request('/authentication/view/getLoggedOutIndicator/', {'contextId' : contextid}, callback);
 };
 
-Authentication.prototype.setAuthenticationMethod = async function (contextid, authmethodname, authmethodconfigparams, apikey, callbacks) {
-  await this.api.request('/authentication/action/setAuthenticationMethod/', {'contextId' : contextid, 'authMethodName' : authmethodname, 'authMethodConfigParams' : authmethodconfigparams, 'apikey' : apikey}, callbacks);
+Authentication.prototype.setAuthenticationMethod = function (contextid, authmethodname, authmethodconfigparams, apikey) {
+  return this.api.request('/authentication/action/setAuthenticationMethod/', {'contextId' : contextid, 'authMethodName' : authmethodname, 'authMethodConfigParams' : authmethodconfigparams, 'apikey' : apikey});
 };
 
-Authentication.prototype.setLoggedInIndicator = async function (contextid, loggedinindicatorregex, apikey, callbacks) {
-  await this.api.request('/authentication/action/setLoggedInIndicator/', {'contextId' : contextid, 'loggedInIndicatorRegex' : loggedinindicatorregex, 'apikey' : apikey}, callbacks);
+Authentication.prototype.setLoggedInIndicator = function (contextid, loggedinindicatorregex, apikey) {
+  return this.api.request('/authentication/action/setLoggedInIndicator/', {'contextId' : contextid, 'loggedInIndicatorRegex' : loggedinindicatorregex, 'apikey' : apikey});
 };
 
 Authentication.prototype.setLoggedOutIndicator = function (contextid, loggedoutindicatorregex, apikey, callback) {

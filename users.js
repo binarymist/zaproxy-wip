@@ -43,9 +43,8 @@ Users.prototype.getAuthenticationCredentials = function (contextid, userid, call
   this.api.request('/users/view/getAuthenticationCredentials/', {'contextId' : contextid, 'userId' : userid}, callback);
 };
 
-Users.prototype.newUser = async function (contextid, name, apikey, callbacks) {
-  debugger;
-  await this.api.request('/users/action/newUser/', {'contextId' : contextid, 'name' : name, 'apikey' : apikey}, callbacks);
+Users.prototype.newUser = function (contextid, name, apikey) {
+  return this.api.request('/users/action/newUser/', {'contextId' : contextid, 'name' : name, 'apikey' : apikey});
 };
 
 Users.prototype.removeUser = function (contextid, userid, apikey, callback) {
@@ -56,8 +55,8 @@ Users.prototype.removeUser = function (contextid, userid, apikey, callback) {
   this.api.request('/users/action/removeUser/', {'contextId' : contextid, 'userId' : userid, 'apikey' : apikey}, callback);
 };
 
-Users.prototype.setUserEnabled = async function (contextid, userid, enabled, apikey, callbacks) {
-  await this.api.request('/users/action/setUserEnabled/', {'contextId' : contextid, 'userId' : userid, 'enabled' : enabled, 'apikey' : apikey}, callbacks);
+Users.prototype.setUserEnabled = function (contextid, userid, enabled, apikey) {
+  return this.api.request('/users/action/setUserEnabled/', {'contextId' : contextid, 'userId' : userid, 'enabled' : enabled, 'apikey' : apikey});
 };
 
 Users.prototype.setUserName = function (contextid, userid, name, apikey, callback) {
@@ -68,8 +67,8 @@ Users.prototype.setUserName = function (contextid, userid, name, apikey, callbac
   this.api.request('/users/action/setUserName/', {'contextId' : contextid, 'userId' : userid, 'name' : name, 'apikey' : apikey}, callback);
 };
 
-Users.prototype.setAuthenticationCredentials = async function (contextid, userid, authcredentialsconfigparams, apikey, callbacks) {
-  await this.api.request('/users/action/setAuthenticationCredentials/', {'contextId' : contextid, 'userId' : userid, 'authCredentialsConfigParams' : authcredentialsconfigparams, 'apikey' : apikey}, callbacks);
+Users.prototype.setAuthenticationCredentials = function (contextid, userid, authcredentialsconfigparams, apikey) {
+  return this.api.request('/users/action/setAuthenticationCredentials/', {'contextId' : contextid, 'userId' : userid, 'authCredentialsConfigParams' : authcredentialsconfigparams, 'apikey' : apikey});
 };
 
 module.exports = Users;

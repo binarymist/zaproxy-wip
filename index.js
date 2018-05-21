@@ -104,47 +104,20 @@ var responseHandler = function (callback) {
   };
 };
 */
-ClientApi.prototype.request = async function (url, parms, callbacks) {
 
-  //if (!callback && typeof(parms === 'function')) {
-  //  callback = parms;
-  //  parms = null;
-  //}
-  const { zapCallback, zapErrorHandler } = callbacks;
 
-  var options = {
-    url: BASE + url
-  };
-  if (parms) {
-    options.qs = parms;
-  }
-  await this.req(options)
-    .then(zapCallback, zapErrorHandler)
-    //.catch(err => {
-    //  debugger;
-      //return callback(err);
-    //});
+const makeRequest = function (parms, options) {
+  return this.req(parms ? { ...options, qs: parms } : options);
 };
 
 
+ClientApi.prototype.request = function (url, parms) {
+  return makeRequest.call(this, parms, { url: BASE + url });
+};
 
-ClientApi.prototype.requestOther = async function (url, parms, callbacks) {
-  //if (!callback && typeof(parms === 'function')) {
-  //  callback = parms;
-  //  parms = null;
-  //}
-  debugger;
-  const { zapCallback, zapErrorHandler } = callbacks;
 
-  var options = {
-    url: BASE_OTHER + url
-  };
-  if (parms) {
-    options.qs = parms;
-  }
-  
-  await this.req(options)
-    .then(zapCallback, zapErrorHandler)
+ClientApi.prototype.requestOther = function (url, parms) {
+  return makeRequest.call(this, parms, { url: BASE_OTHER + url });
 };
 
 module.exports = ClientApi;

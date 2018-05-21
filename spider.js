@@ -134,12 +134,12 @@ Spider.prototype.optionSendRefererHeader = function (callback) {
   this.api.request('/spider/view/optionSendRefererHeader/', callback);
 };
 
-Spider.prototype.scan = async function (url, maxchildren, apikey, callbacks) {
-  await this.api.request('/spider/action/scan/', {'url' : url, 'maxChildren' : maxchildren, 'apikey' : apikey}, callbacks);
+Spider.prototype.scan = function (url, maxchildren, apikey) {
+  return this.api.request('/spider/action/scan/', {'url' : url, 'maxChildren' : maxchildren, 'apikey' : apikey});
 };
 
-Spider.prototype.scanAsUser = async function (url, contextid, userid, maxchildren, apikey, callbacks) {
-  await this.api.request('/spider/action/scanAsUser/', {'url' : url, 'contextId' : contextid, 'userId' : userid, 'maxChildren' : maxchildren, 'apikey' : apikey}, callbacks);
+Spider.prototype.scanAsUser = function (url, contextid, userid, maxchildren, apikey) {
+  return this.api.request('/spider/action/scanAsUser/', {'url' : url, 'contextId' : contextid, 'userId' : userid, 'maxChildren' : maxchildren, 'apikey' : apikey});
 };
 
 Spider.prototype.pause = function (scanid, apikey, callback) {
@@ -254,12 +254,12 @@ Spider.prototype.setOptionHandleParameters = function (string, apikey, callback)
   this.api.request('/spider/action/setOptionHandleParameters/', {'String' : string, 'apikey' : apikey}, callback);
 };
 
-Spider.prototype.setOptionMaxDepth = async function (integer, apikey, callbacks) {
-  await this.api.request('/spider/action/setOptionMaxDepth/', {'Integer' : integer, 'apikey' : apikey}, callbacks);
+Spider.prototype.setOptionMaxDepth = function (integer, apikey) {
+  return this.api.request('/spider/action/setOptionMaxDepth/', {'Integer' : integer, 'apikey' : apikey});
 };
 
-Spider.prototype.setOptionThreadCount = async function (integer, apikey, callbacks) {
-  await this.api.request('/spider/action/setOptionThreadCount/', {'Integer' : integer, 'apikey' : apikey}, callbacks);
+Spider.prototype.setOptionThreadCount = function (integer, apikey) {
+  return this.api.request('/spider/action/setOptionThreadCount/', {'Integer' : integer, 'apikey' : apikey});
 };
 
 Spider.prototype.setOptionPostForm = function (bool, apikey, callback) {

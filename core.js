@@ -44,8 +44,8 @@ Core.prototype.alerts = function (baseurl, start, count, callback) {
 /**
  * Gets the number of alerts, optionally filtering by URL
  **/
-Core.prototype.numberOfAlerts = async function (baseurl, callbacks) {
-  await this.api.request('/core/view/numberOfAlerts/', {'baseurl' : baseurl}, callbacks);
+Core.prototype.numberOfAlerts = function (baseurl) {
+  return this.api.request('/core/view/numberOfAlerts/', {'baseurl' : baseurl});
 };
 
 /**
@@ -425,8 +425,8 @@ Core.prototype.xmlreport = function (apikey, callback) {
 /**
  * Generates a report in HTML format
  **/
-Core.prototype.htmlreport = async function (apikey, callbacks) {
-  await this.api.requestOther('/core/other/htmlreport/', {'apikey' : apikey}, callbacks);
+Core.prototype.htmlreport = function (apikey) {
+  return this.api.requestOther('/core/other/htmlreport/', {'apikey' : apikey});
 };
 
 /**
